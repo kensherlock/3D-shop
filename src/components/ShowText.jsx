@@ -44,7 +44,7 @@ function ShowText() {
   return (
     <>
       <CameraControls ref={controls} />
-      <mesh ref={meshFitCarmeraHome} position-y={-0.48} visible={false}>
+      <mesh ref={meshFitCarmeraHome} position-y={0} position-z={2} visible={false}>
           <boxGeometry args={[2, 1, 2]} />
           <meshBasicMaterial color='red' transparent opacity={0.5} />
       </mesh>
@@ -60,7 +60,7 @@ function ShowText() {
       </Text>
       <group position={[0, -0.48, -20]}>
         <Guy scale={0.1}  position={[0, 0, 0]} />
-        <mesh ref={meshFitCarmeraGuy} visible={false} position-y={1}>
+        <mesh ref={meshFitCarmeraGuy} visible={false} position-y={1} position-z={2}>
           <boxGeometry args={[2, 1, 2]} />
           <meshBasicMaterial color='red' transparent opacity={0.5} />
         </mesh>
