@@ -46,16 +46,16 @@ export default function Guy(props) {
     <group {...props} dispose={null}>
       <group>
         <mesh name="polySurface11_polySurface12" geometry={nodes.polySurface11_polySurface12.geometry}>
-          <meshStandardMaterial {...(material === "stylized" ? stylizedTextureProps : portugueseTextureProps)} />
+          <meshStandardMaterial {...(material === "stylized" ? stylizedTextureProps : portugueseTextureProps)} color={color} />
         </mesh>
         <mesh name="polySurface11_polySurface12_1" geometry={nodes.polySurface11_polySurface12_1.geometry}>
-          <meshStandardMaterial {...(material === "stylized" ? stylizedTextureProps : portugueseTextureProps)} />
+          <meshStandardMaterial {...(material === "stylized" ? stylizedTextureProps : portugueseTextureProps)} color={color}/>
         </mesh>
         <mesh name="polySurface13_polySurface14" geometry={nodes.polySurface13_polySurface14.geometry}>
-          <meshStandardMaterial {...(material === "stylized" ? stylizedTextureProps : portugueseTextureProps)} />
+          <meshStandardMaterial {...(material === "stylized" ? stylizedTextureProps : portugueseTextureProps)} color={color}/>
         </mesh>
         <mesh name="polySurface13_polySurface14_1" geometry={nodes.polySurface13_polySurface14_1.geometry}>
-          <meshStandardMaterial {...(material === "stylized" ? stylizedTextureProps : portugueseTextureProps)} />
+          <meshStandardMaterial {...(material === "stylized" ? stylizedTextureProps : portugueseTextureProps)} color={color}/>
         </mesh>
       </group>
     </group>

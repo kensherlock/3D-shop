@@ -10,8 +10,8 @@ export const materialAtom = atom("stylized");
 const ShopUI = () => {
   const [currentPage, setCurrentPage] = useAtom(currentPageAtom);
   const [shopPage, setShopPage] = useState();
-  
-  const {material, setMaterial, color, setColor, animation, setAnimation} = useGuyContext();
+
+  const { material, setMaterial, colors, setColor, animation, setAnimation } = useGuyContext();
 
   return (
     <div className={`relative inset-0 pointer-events-none 
@@ -24,7 +24,7 @@ const ShopUI = () => {
           <div className="h-[20%] my-5 text-4xl text-orange-400 font-black">Menu</div>
           <div className="h-[10%]">
             <button
-              onClick={() => console.log(material)}
+              onClick={() => setShopPage("color")}
               className="pointer-events-auto cursor-copy text-xl my-5 bg-black text-orange-400 font-black border-solid border-4 border-white hover:scale-105">Color
             </button>
           </div>
@@ -50,6 +50,22 @@ const ShopUI = () => {
           <div className={`relative w-full h-full duration-500`}>
             <div
               className={`absolute w-[20%] top-10 start-0 mx-5 grid grid-cols-1 gap-10"
+              ${shopPage === "color" ? '' : 'hidden'}`}
+            >
+              {colors.map((item, index) => (
+                <div
+                  key={index}
+                  className={` ${item.color === colors.color ? "item--active" : ""
+                    }`}
+                  onClick={() => setColor(item.color)}
+                >
+                  <div className='pointer-events-auto cursor-copy hover:scale-105'>{item.name}</div>
+                </div>
+              ))}
+            </div>
+
+            <div
+              className={`absolute w-[20%] top-10 start-0 mx-5 grid grid-cols-1 gap-10"
               ${shopPage === "texture" ? '' : 'hidden'}`}
             >
               <button
@@ -61,6 +77,21 @@ const ShopUI = () => {
                 className="pointer-events-auto cursor-copy hover:scale-105">portuguese
               </button>
             </div>
+
+            <div
+              className={`absolute w-[20%] top-10 start-0 mx-5 grid grid-cols-1 gap-10"
+              ${shopPage === "animation" ? '' : 'hidden'}`}
+            >
+              <button
+                onClick={() => setAnimation("stylized")}
+                className=" pointer-events-auto cursor-copy hover:scale-105">stylized
+              </button>
+              <button
+                onClick={() => setAnimation("portuguese")}
+                className="pointer-events-auto cursor-copy hover:scale-105">portuguese
+              </button>
+            </div>
+
           </div>
         </section>
 
