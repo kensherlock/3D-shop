@@ -5,8 +5,10 @@ Command: npx gltfjsx@6.5.0 public/models/guy2.glb
 
 import React, { useEffect } from 'react'
 import { useGraph } from '@react-three/fiber'
-import { useGLTF, useAnimations } from '@react-three/drei'
+import { useGLTF, useAnimations, useTexture } from '@react-three/drei'
 import { SkeletonUtils } from 'three-stdlib'
+
+import * as THREE from "three";
 
 import { useGuyContext } from '../contexts/GuyContext'
 
@@ -16,9 +18,35 @@ const Guy2 = (props) => {
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
   const { actions, names } = useAnimations(animations, group)
-  console.log(names);
 
   const { material, color, animation, setAnimation, animationIndex, setAnimationIndex } = useGuyContext();
+
+  const stylizedTextureProps = useTexture({
+    normalMap: "/textures/stylized/Stylized_Bricks_005_normal.png",
+    roughnessMap: "/textures/stylized/Stylized_Bricks_005_roughness.png",
+    aoMap: "/textures/stylized/Stylized_Bricks_005_ambientOcclusion.png",
+  });
+
+  stylizedTextureProps.normalMap.repeat.set(1, 1);
+  stylizedTextureProps.roughnessMap.repeat.set(1, 1);
+  stylizedTextureProps.aoMap.repeat.set(1, 1);
+  stylizedTextureProps.normalMap.wrapS = stylizedTextureProps.normalMap.wrapT = THREE.MirroredRepeatWrapping;
+  stylizedTextureProps.roughnessMap.wrapS = stylizedTextureProps.roughnessMap.wrapT = THREE.MirroredRepeatWrapping;
+  stylizedTextureProps.aoMap.wrapS = stylizedTextureProps.aoMap.wrapT = THREE.RepeatWrapping;
+
+  const portugueseTextureProps = useTexture({
+    normalMap: "/textures/portuguese/Portuguese_Tiles_006_normal.png",
+    roughnessMap: "/textures/portuguese/Portuguese_Tiles_006_roughness.png",
+    aoMap: "/textures/portuguese/Portuguese_Tiles_006_ambientOcclusion.png",
+  });
+
+  portugueseTextureProps.normalMap.repeat.set(1, 1);
+  portugueseTextureProps.roughnessMap.repeat.set(1, 1);
+  portugueseTextureProps.aoMap.repeat.set(1, 1);
+  portugueseTextureProps.normalMap.wrapS = portugueseTextureProps.normalMap.wrapT = THREE.MirroredRepeatWrapping;
+  portugueseTextureProps.roughnessMap.wrapS = portugueseTextureProps.roughnessMap.wrapT = THREE.MirroredRepeatWrapping;
+  portugueseTextureProps.aoMap.wrapS = portugueseTextureProps.aoMap.wrapT = THREE.RepeatWrapping;
+
 
   useEffect(() => {
     setAnimation(names);
@@ -37,7 +65,14 @@ const Guy2 = (props) => {
       <group name="Scene">
         <group name="Armature" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
           <primitive object={nodes.mixamorig1Hips} />
-          <skinnedMesh name="Ch36" geometry={nodes.Ch36.geometry} material={materials.Ch36_Body} skeleton={nodes.Ch36.skeleton} />
+          <skinnedMesh name="Ch36"
+            geometry={nodes.Ch36.geometry}
+            //material={materials.Ch36_Body} 
+            skeleton={nodes.Ch36.skeleton}>
+            <meshStandardMaterial {...(material === "stylized" ? stylizedTextureProps : portugueseTextureProps)} color={color} />
+
+
+          </skinnedMesh>
         </group>
       </group>
     </group>
