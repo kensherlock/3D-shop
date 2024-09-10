@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 import {motion} from 'framer-motion'
 
 function EnterButton() {
@@ -13,4 +13,4 @@ function EnterButton() {
   )
 }
 
-export default EnterButton
+export default EnterButton */
