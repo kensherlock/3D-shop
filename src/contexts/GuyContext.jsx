@@ -41,7 +41,8 @@ export const GuyContextProvider = ({ children }) => {
 
     const [material, setMaterial] = useState("stylized");
     const [color, setColor] = useState(colors[0]);
-    const [animation, setAnimation] = useState("idle");
+    const [animationIndex, setAnimationIndex] = useState(0);
+    const [animation, setAnimation] = useState([]);
 
     return (
         <GuyContext.Provider
@@ -51,6 +52,8 @@ export const GuyContextProvider = ({ children }) => {
                 colors,
                 color,
                 setColor,
+                animationIndex,
+                setAnimationIndex,
                 animation,
                 setAnimation,
             }}

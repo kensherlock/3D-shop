@@ -11,7 +11,7 @@ const ShopUI = () => {
   const [currentPage, setCurrentPage] = useAtom(currentPageAtom);
   const [shopPage, setShopPage] = useState();
 
-  const { material, setMaterial, colors, setColor, animation, setAnimation } = useGuyContext();
+  const { material, setMaterial, colors, setColor, animation, setAnimation, animationIndex, setAnimationIndex } = useGuyContext();
 
   return (
     <div className={`relative inset-0 pointer-events-none 
@@ -38,7 +38,7 @@ const ShopUI = () => {
           <div className="h-[10%]">
             <br />
             <button
-              onClick={() => setCurrentPage("animation")}
+              onClick={() => setShopPage("animation")}
               className="pointer-events-auto cursor-copy text-xl my-5 bg-black text-orange-400 font-black border-solid border-4 border-white hover:scale-105">Animation
             </button>
           </div>
@@ -83,15 +83,16 @@ const ShopUI = () => {
               className={`absolute w-[20%] top-10 start-0 mx-5 grid grid-cols-1 gap-10"
               ${shopPage === "animation" ? '' : 'hidden'}`}
             >
-              <button
-                onClick={() => setAnimation("idle")}
-                className=" pointer-events-auto cursor-copy hover:scale-105">idle
-              </button>
-              <button
-                onClick={() => setAnimation("run")}
-                className="pointer-events-auto cursor-copy hover:scale-105">run
-              </button>
-
+              {animation.map((animationItem, index) => (
+                <button
+                  key={animationItem}
+                  variant={index === animationIndex ? "filled" : "light"}
+                  onClick={() => setAnimationIndex(index)}
+                  className='pointer-events-auto cursor-copy hover:scale-105'
+                >
+                  {animationItem}
+                </button>
+              ))}
 
             </div>
 

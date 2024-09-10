@@ -3,6 +3,7 @@ import { CameraControls, OrbitControls, Text, MeshReflectorMaterial, Environment
 import Guy from './Guy';
 import { currentPageAtom} from './UI';
 import { useAtom } from 'jotai';
+import Guy2 from './Guy2';
 
 function ShowText() {
 
@@ -60,6 +61,7 @@ function ShowText() {
       </Text>
       <group position={[0, -0.48, -20]}>
         <Guy scale={0.1}  position={[0, 0, 0]} />
+        <Guy2 scale={1.3} position={[0, 0, 0]} />
         <mesh ref={meshFitCarmeraGuy} visible={false} position-y={1} position-z={2}>
           <boxGeometry args={[2, 1, 2]} />
           <meshBasicMaterial color='red' transparent opacity={0.5} />
