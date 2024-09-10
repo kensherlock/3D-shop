@@ -38,7 +38,7 @@ const ShopUI = () => {
           <div className="h-[10%]">
             <br />
             <button
-              onClick={() => setCurrentPage("home")}
+              onClick={() => setCurrentPage("animation")}
               className="pointer-events-auto cursor-copy text-xl my-5 bg-black text-orange-400 font-black border-solid border-4 border-white hover:scale-105">Animation
             </button>
           </div>
@@ -48,6 +48,7 @@ const ShopUI = () => {
       <div dir='rtl'>
         <section className={`absolute w-full h-full top-0`}>
           <div className={`relative w-full h-full duration-500`}>
+
             <div
               className={`absolute w-[20%] top-10 start-0 mx-5 grid grid-cols-1 gap-10"
               ${shopPage === "color" ? '' : 'hidden'}`}
@@ -83,13 +84,15 @@ const ShopUI = () => {
               ${shopPage === "animation" ? '' : 'hidden'}`}
             >
               <button
-                onClick={() => setAnimation("stylized")}
-                className=" pointer-events-auto cursor-copy hover:scale-105">stylized
+                onClick={() => setAnimation("idle")}
+                className=" pointer-events-auto cursor-copy hover:scale-105">idle
               </button>
               <button
-                onClick={() => setAnimation("portuguese")}
-                className="pointer-events-auto cursor-copy hover:scale-105">portuguese
+                onClick={() => setAnimation("run")}
+                className="pointer-events-auto cursor-copy hover:scale-105">run
               </button>
+
+
             </div>
 
           </div>
