@@ -2,36 +2,40 @@ import { createContext, useContext, useState } from "react";
 
 const colors = [
     {
-      color: "#683434",
-      name: "brown",
+      color: "#6b7280",
+      name: "gray",
     },
     {
-      color: "#1a5e1a",
-      name: "green",
+      color: "#ef4444",
+      name: "red",
     },
     {
-      color: "#659994",
-      name: "blue",
-    },
-    {
-      color: "#896599",
-      name: "mauve",
-    },
-    {
-      color: "#ffa500",
+      color: "#f97316",
       name: "orange",
     },
     {
-      color: "#59555b",
-      name: "grey",
+      color: "#eab308",
+      name: "yellow",
     },
     {
-      color: "#222222",
-      name: "black",
+      color: "#22c55e",
+      name: "green",
     },
     {
-      color: "#ececec",
-      name: "white",
+      color: "#0ea5e9",
+      name: "sky",
+    },
+    {
+      color: "#3b82f6",
+      name: "blue",
+    },
+    {
+      color: "#a855f7",
+      name: "purple",
+    },
+    {
+      color: "#ec4899",
+      name: "pink",
     },
   ];
 

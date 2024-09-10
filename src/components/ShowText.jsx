@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { CameraControls, OrbitControls, Text, MeshReflectorMaterial, Environment, useFont } from '@react-three/drei'
 import Guy from './Guy';
-import { currentPageAtom} from './UI';
+import { currentPageAtom } from './UI';
 import { useAtom } from 'jotai';
 import Guy2 from './Guy2';
 
@@ -27,7 +27,7 @@ function ShowText() {
   const fitCamera = async () => {
     if (currentPage === "guy") {
       controls.current.fitToBox(meshFitCarmeraGuy.current, true);
-    }else if (currentPage === "home") {
+    } else if (currentPage === "home") {
       controls.current.fitToBox(meshFitCarmeraHome.current, true);
     }
   }
@@ -46,8 +46,8 @@ function ShowText() {
     <>
       <CameraControls ref={controls} />
       <mesh ref={meshFitCarmeraHome} position-y={0} position-z={2} visible={false}>
-          <boxGeometry args={[2, 1, 2]} />
-          <meshBasicMaterial color='red' transparent opacity={0.5} />
+        <boxGeometry args={[2, 1, 2]} />
+        <meshBasicMaterial color='red' transparent opacity={0.5} />
       </mesh>
       <Text
         font='fonts/Poppins-Black.ttf'
@@ -60,9 +60,8 @@ function ShowText() {
         <meshBasicMaterial color='red' />
       </Text>
       <group position={[0, -0.48, -20]}>
-        <Guy scale={0.1}  position={[0, 0, 0]} />
         <Guy2 scale={1.3} position={[0, 0, 0]} />
-        <mesh ref={meshFitCarmeraGuy} visible={false} position-y={1} position-z={2}>
+        <mesh ref={meshFitCarmeraGuy} visible={false} position-y={1} position-z={1.2}>
           <boxGeometry args={[2, 1, 2]} />
           <meshBasicMaterial color='red' transparent opacity={0.5} />
         </mesh>

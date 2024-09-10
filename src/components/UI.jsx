@@ -25,21 +25,21 @@ const ShopUI = () => {
           <div className="h-[10%]">
             <button
               onClick={() => setShopPage("color")}
-              className="pointer-events-auto cursor-copy text-xl my-5 bg-black text-orange-400 font-black border-solid border-4 border-white hover:scale-105">Color
+              className="pointer-events-auto hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 text-xl text-white font-bold py-2 px-4 rounded my-5 cursor-copy hover:scale-105">Color
             </button>
           </div>
           <div className="h-[10%]">
             <br />
             <button
               onClick={() => setShopPage("texture")}
-              className="pointer-events-auto cursor-copy text-xl my-5 bg-black text-orange-400 font-black border-solid border-4 border-white hover:scale-105">Texture
+              className="pointer-events-auto hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 text-xl text-white font-bold py-2 px-4 rounded my-5 cursor-copy hover:scale-105">Texture
             </button>
           </div>
           <div className="h-[10%]">
             <br />
             <button
               onClick={() => setShopPage("animation")}
-              className="pointer-events-auto cursor-copy text-xl my-5 bg-black text-orange-400 font-black border-solid border-4 border-white hover:scale-105">Animation
+              className="pointer-events-auto hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 text-xl text-white font-bold py-2 px-4 rounded my-5 cursor-copy hover:scale-105">Animation
             </button>
           </div>
         </section>
@@ -54,14 +54,15 @@ const ShopUI = () => {
               ${shopPage === "color" ? '' : 'hidden'}`}
             >
               {colors.map((item, index) => (
-                <div
+                <button
                   key={index}
-                  className={` ${item.color === colors.color ? "item--active" : ""
-                    }`}
+                  className={`text-white font-bold py-2 px-4 rounded my-5`}
+                  style={{ backgroundColor: item.color }}
                   onClick={() => setColor(item.color)}
                 >
                   <div className='pointer-events-auto cursor-copy hover:scale-105'>{item.name}</div>
-                </div>
+                </button>
+
               ))}
             </div>
 
@@ -71,11 +72,11 @@ const ShopUI = () => {
             >
               <button
                 onClick={() => setMaterial("stylized")}
-                className=" pointer-events-auto cursor-copy hover:scale-105">stylized
+                className="pointer-events-auto hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 text-xl text-white font-bold py-2 px-4 rounded my-5 cursor-copy hover:scale-105">stylized
               </button>
               <button
                 onClick={() => setMaterial("portuguese")}
-                className="pointer-events-auto cursor-copy hover:scale-105">portuguese
+                className="pointer-events-auto hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 text-xl text-white font-bold py-2 px-4 rounded my-5 cursor-copy hover:scale-105">portuguese
               </button>
             </div>
 
@@ -88,7 +89,7 @@ const ShopUI = () => {
                   key={animationItem}
                   variant={index === animationIndex ? "filled" : "light"}
                   onClick={() => setAnimationIndex(index)}
-                  className='pointer-events-auto cursor-copy hover:scale-105'
+                  className='pointer-events-auto hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 text-xl text-white font-bold py-2 px-4 rounded my-5 cursor-copy hover:scale-105'
                 >
                   {animationItem}
                 </button>
@@ -100,6 +101,22 @@ const ShopUI = () => {
         </section>
 
       </div>
+    </div>
+  );
+}
+
+const HomeButton = () => {
+  const [currentPage, setCurrentPage] = useAtom(currentPageAtom);
+
+  return (
+    <div className={`flex h-[50%] inset-0 pointer-events-none p-10 
+    ${currentPage === "guy" ? '' : 'hidden'}`}
+    >
+      <button
+        onClick={() => setCurrentPage("home")}
+        className="pointer-events-auto h-16 text-2xl text-red-500 font-bold py-2 px-4 rounded my-5 cursor-copy hover:scale-105 hover:text-white hover:bg-red-500 duration-500">
+        Guy
+      </button>
     </div>
   );
 }
@@ -122,6 +139,7 @@ function UI() {
         </button>
       </section>
       <ShopUI />
+      <HomeButton />
     </div>
   );
 }
