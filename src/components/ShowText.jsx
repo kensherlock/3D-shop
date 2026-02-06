@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { CameraControls, OrbitControls, Text, MeshReflectorMaterial, Environment, useFont } from '@react-three/drei'
-import Guy from './Guy';
+//import Guy from './Guy';
 import { currentPageAtom } from './UI';
 import { useAtom } from 'jotai';
 import Guy2 from './Guy2';
