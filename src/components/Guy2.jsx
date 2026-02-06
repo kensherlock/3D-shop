@@ -14,7 +14,7 @@ import { useGuyContext } from '../contexts/GuyContext'
 
 const Guy2 = (props) => {
   const group = React.useRef()
-  const { scene, animations } = useGLTF('./models/guy2.glb')
+  const { scene, animations } = useGLTF('/models/guy2.glb')
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
   const { actions, names } = useAnimations(animations, group)
@@ -81,4 +81,4 @@ const Guy2 = (props) => {
 
 export default Guy2
 
-useGLTF.preload('./models/guy2.glb')
+useGLTF.preload('/models/guy2.glb')
